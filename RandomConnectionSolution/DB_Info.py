@@ -7,3 +7,4 @@ random_db = pymysql.connect(
     db='randomconnectionsol', 
     charset='euckr'
 )
+d
