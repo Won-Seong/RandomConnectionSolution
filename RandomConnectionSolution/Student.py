@@ -1,10 +1,8 @@
 import pandas as pd
 import time
 import pymysql
-from dbInfo import random_db
+from dbInfo import cursor
 from tabulate import tabulate
-
-cursor = random_db.cursor(pymysql.cursors.DictCursor)
 
 student_matched = dict()
 
@@ -146,8 +144,5 @@ def all_score():
     sql = "SELECT * FROM score;"
     cursor.execute(sql)
     result = cursor.fetchall()
-    print(tabulate(result, headers = 'keys'))
+    return result
   
-
-all_student_info()
-all_score()
