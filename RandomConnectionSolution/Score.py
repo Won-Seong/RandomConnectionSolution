@@ -1,7 +1,14 @@
 import Student
-import numpy as np
 from tabulate import tabulate
 from dbInfo import cursor
+
+def stu_parsing(set_of_student_id):
+    string = "("
+    for x in set_of_student_id:
+        string += "'" + x + "',"
+    string = string[0: len(string) - 1]
+    string += ')'
+    return string
 
 def mbti_score(mbti_one, mbti_two):
     sql = f"SELECT * FROM mbti_score WHERE mbti_one = '{mbti_one}' and mbti_two = '{mbti_two}';"
@@ -24,20 +31,16 @@ def interest_score(student_1_id , student_2_id):
     return len(result) 
 
 def two_student_score(student_1, student_2):
-    result = mbti_score(student_1["MBTI"] , student_2["MBTI"])
-    result += interest_score(student_1["student_id"], student_2["student_id"])
-    result -= abs(student_1["birth"].year - student_2["birth"].year)
-    if(student_1["place"] == student_2["place"]) : result += 1
-    return result
+    asdf = mbti_score(student_1["MBTI"] , student_2["MBTI"])
+    asdf += interest_score(student_1["student_id"], student_2["student_id"])
+    asdf -= abs(student_1["birth"].year - student_2["birth"].year)
+    if(student_1["place"] == student_2["place"]) : asdf += 1
+    return asdf
+    
      
-def score_algorithm(set_of_student_id):
-    stu_list = Student.set_student_info(set_of_student_id)
-    matrix = np.zeros([len(stu_list), len(stu_list)])
-    for i in range(len(stu_list)):
-        for j in range(len(stu_list)):
-            if i == j : continue        
-            matrix[i][j] = two_student_score(stu_list[i] , stu_list[j])
-    return matrix
 
-if  __name__ == "__main__":
-    print(score_algorithm({'11112222','11113333'}))
+if __name__ == "__main__":
+    mbti_score("ENFJ" , "INFJ")
+    interest_score("11112222","11112222")
+    Student.student_info('11112222')
+    two_student_score(Student.student_info('11112222') , Student.student_info('11113333'))

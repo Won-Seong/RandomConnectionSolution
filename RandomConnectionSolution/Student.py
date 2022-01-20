@@ -6,17 +6,6 @@ from tabulate import tabulate
 
 student_matched = dict()
 
-def print_tab(students):
-    print(tabulate(students, headers = 'keys'))
-
-def stu_parsing(set_of_student_id):
-    string = "("
-    for x in set_of_student_id:
-        string += "'" + x + "',"
-    string = string[0: len(string) - 1]
-    string += ')'
-    return string
-
 def student_info(student_id):
     sql = "SELECT * FROM students WHERE student_id = '" + student_id + "';"
     cursor.execute(sql)
@@ -28,14 +17,7 @@ def all_student_info():
     sql = "SELECT * FROM students;"
     cursor.execute(sql)
     result = pd.DataFrame(cursor.fetchall())
-    return result
-
-def set_student_info(set_of_student_id):
-    string = stu_parsing(set_of_student_id)
-    sql = f"SELECT * FROM students WHERE student_id IN {string}"
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    return result    
+    print( tabulate(result,headers = 'keys'))
     
 def student_load(student_id, passward):
     sql = "SELECT * FROM students WHERE student_id = '" + student_id + "';"
