@@ -23,7 +23,7 @@
   <ItemGroup>
     <Compile Include="DB_Info.py">
       <SubType>Code</SubType>
-      <Publish>False</Publish>
+      <Publish>True</Publish>
     </Compile>
     <Compile Include="package1\__init__.py">
       <SubType>Code</SubType>
