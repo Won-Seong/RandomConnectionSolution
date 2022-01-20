@@ -31,12 +31,16 @@ def interest_score(student_1_id , student_2_id):
     return len(result) 
 
 def two_student_score(student_1, student_2):
-    print(mbti_score(student_1["mbti"] , student_2["mbti"]))
-    print(interest_score(student_1["student_id"], student_2["student_id"])) 
-    print(student_1["birth"] - student_2["birth"])
+    asdf = mbti_score(student_1["MBTI"] , student_2["MBTI"])
+    asdf += interest_score(student_1["student_id"], student_2["student_id"])
+    asdf -= abs(student_1["birth"].year - student_2["birth"].year)
+    if(student_1["place"] == student_2["place"]) : asdf += 1
+    return asdf
+    
      
 
 if __name__ == "__main__":
     mbti_score("ENFJ" , "INFJ")
     interest_score("11112222","11112222")
+    Student.student_info('11112222')
     two_student_score(Student.student_info('11112222') , Student.student_info('11113333'))
