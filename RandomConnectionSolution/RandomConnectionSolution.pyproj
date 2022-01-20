@@ -21,9 +21,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DB_Info.py">
+    <Compile Include="dbInfo.py">
       <SubType>Code</SubType>
-      <Publish>True</Publish>
     </Compile>
     <Compile Include="package1\__init__.py">
       <SubType>Code</SubType>

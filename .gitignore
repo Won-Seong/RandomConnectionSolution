@@ -4,9 +4,9 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 #My file
-DB_Info.py
-/DB_Info.py
-DB_Info.py/
+dbInfo.py/
+dbInfo.py
+/dbInfo.py
 
 # User-specific files
 *.rsuser

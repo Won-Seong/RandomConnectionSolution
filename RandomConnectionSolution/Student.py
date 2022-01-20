@@ -1,6 +1,7 @@
 import pandas as pd
 import time
-import DB_Info
+import pymysql
+from dbInfo import random_db
 from tabulate import tabulate
 
 cursor = random_db.cursor(pymysql.cursors.DictCursor)
