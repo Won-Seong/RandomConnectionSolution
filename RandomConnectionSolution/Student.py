@@ -6,19 +6,12 @@ from tabulate import tabulate
 
 student_matched = dict()
 
-def student_info(student_id, passward):
+def student_info(student_id):
     sql = "SELECT * FROM students WHERE student_id = '" + student_id + "';"
     cursor.execute(sql)
-    result = cursor.fetchall()
-    if len(result) == 0 :
-        print("There is no student has such student_id")
-        return False
-    elif result[0]['passward'] == passward: 
-        print(tabulate(pd.DataFrame(result),headers = 'keys'))
-        return True
-    else : 
-        print("Wrong passward!")
-        return False
+    result = cursor.fetchone()
+    if result : return result
+    else : return False
 
 def all_student_info():
     sql = "SELECT * FROM students;"
@@ -146,3 +139,9 @@ def all_score():
     result = cursor.fetchall()
     return result
   
+if __name__ == "__main__":
+    all_student_info()
+    all_conversation_info()
+    all_matching_info()
+    all_score()
+    
