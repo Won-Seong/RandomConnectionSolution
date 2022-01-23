@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>244a7aa4-43ca-41ae-915b-083dec3c6add</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>RandomConnectionSolution.py</StartupFile>
+    <StartupFile>RandomConnectionSolution\Score.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,22 +21,32 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="dbInfo.py">
+    <Compile Include="RandomConnectionSolution\dbInfo.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="package1\__init__.py">
+    <Compile Include="RandomConnectionSolution\views.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RandomConnectionSolution.py" />
-    <Compile Include="Score.py">
+    <Compile Include="RandomConnectionSolution\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Student.py">
+    <Compile Include="runserver.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RandomConnectionSolution\Score.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RandomConnectionSolution\Student.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="package1\" />
+    <Folder Include="RandomConnectionSolution\" />
+    <Folder Include="RandomConnectionSolution\my_module\" />
+    <Folder Include="RandomConnectionSolution\templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RandomConnectionSolution\templates\home.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
